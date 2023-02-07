@@ -379,6 +379,8 @@ class VisionTransformer(nn.Module):
 
         self.patch_embed = embed_layer(
             img_size=img_size, patch_size=patch_size, in_chans=in_chans, embed_dim=embed_dim)
+        # TODO: what is this?
+        print("self.patch_embed.shape", self.patch_embed.shape)
         num_patches = self.patch_embed.num_patches
 
         self.cls_token = nn.Parameter(torch.zeros(1, 1, embed_dim)) if class_token else None
